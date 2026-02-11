@@ -123,3 +123,43 @@ body {
   font-size: 14px;
   color: #777;
 }
+
+
+/* ABOUT SECTION */
+
+.about {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.about h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.about-subtext {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.workflow-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.workflow-step {
+  flex: 1;
+  min-width: 240px;
+  background: white;
+  border: 1px solid #eee;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+  text-align: left;
+}
+
+.workflow-step h4 {
+  margin-bottom: 6px;
+}

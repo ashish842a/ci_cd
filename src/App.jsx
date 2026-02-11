@@ -34,6 +34,48 @@ function App() {
         </div>
       </section>
 
+      {/* ✅ NEW ABOUT SECTION */}
+
+      <section className="about">
+        <h3>👨‍💻 Developer Workflow</h3>
+        <p className="about-subtext">
+          This project simulates a real-world CI/CD pipeline used in modern
+          production systems.
+        </p>
+
+        <div className="workflow-grid">
+          <div className="workflow-step">
+            <h4>🛠 Development</h4>
+            <p>
+              Code is written and tested locally using Vite’s fast dev server.
+            </p>
+          </div>
+
+          <div className="workflow-step">
+            <h4>📦 Continuous Integration</h4>
+            <p>
+              Every push triggers GitHub Actions to install dependencies and
+              build the application.
+            </p>
+          </div>
+
+          <div className="workflow-step">
+            <h4>🚀 Continuous Deployment</h4>
+            <p>
+              On successful build, the pipeline automatically deploys the
+              production bundle to GitHub Pages.
+            </p>
+          </div>
+
+          <div className="workflow-step">
+            <h4>🌍 Production</h4>
+            <p>
+              Users access a fully static, optimized website served globally.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="features">
         <div className="feature">
           <h4>🚀 CI/CD Ready</h4>
@@ -52,7 +94,7 @@ function App() {
       </section>
 
       <footer className="footer">
-        Built with React + Vite • Ashish DevOps Playground 😎
+        Built with React + Vite • DevOps Style Deployment 😎🚀
       </footer>
     </div>
   )
