@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="page">
       <header className="navbar">
-        <h1 className="logo">Ashish Development React</h1>
+        <h1 className="logo">Ashish Development New React</h1>
         <div className="nav-buttons">
           <button className="secondary-btn">Login</button>
           <button className="primary-btn">Get Started</button>
