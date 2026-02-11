@@ -12,5 +12,6 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/ci_cd/'   // 👈 MUST match repo name
+  base: '/ci_cd/'   // 👈 MUST exist
 })
+
