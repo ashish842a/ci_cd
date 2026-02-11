@@ -1,8 +1,10 @@
-name: Deploy Vite App
+name: Multi Environment Deploy
 
 on:
   push:
     branches:
+      - develop
+      - staging
       - main
 
 permissions:
@@ -13,21 +15,56 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      # ✅ Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v4
 
+      # ✅ Install Node (Vite requires Node 20+)
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22   # ✅ FIXED
+          node-version: 20
 
-      - name: Install dependencies
+      # ✅ Install Dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build project
+      # ✅ Build DEV Environment
+      - name: Build DEV
+        if: github.ref == 'refs/heads/develop'
+        run: npm run build -- --mode dev
+
+      # ✅ Build STAGING Environment
+      - name: Build STAGING
+        if: github.ref == 'refs/heads/staging'
+        run: npm run build -- --mode staging
+
+      # ✅ Build PRODUCTION
+      - name: Build PROD
+        if: github.ref == 'refs/heads/main'
         run: npm run build
 
-      - name: Deploy to GitHub Pages
+      # ✅ Deploy DEV
+      - name: Deploy DEV
+        if: github.ref == 'refs/heads/develop'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          destination_dir: dev
+
+      # ✅ Deploy STAGING
+      - name: Deploy STAGING
+        if: github.ref == 'refs/heads/staging'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          destination_dir: staging
+
+      # ✅ Deploy PRODUCTION
+      - name: Deploy PROD
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
