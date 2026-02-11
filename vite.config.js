@@ -10,8 +10,28 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
-  plugins: [react()],
-  base: '/ci_cd/'   // 👈 MUST exist
+
+
+export default defineConfig(({ mode }) => {
+
+  let basePath = '/ci_cd/'
+
+  if (mode === 'development') {
+    basePath = '/'
+  }
+
+  if (mode === 'dev') {
+    basePath = '/ci_cd/dev/'
+  }
+
+  if (mode === 'staging') {
+    basePath = '/ci_cd/staging/'
+  }
+
+  return {
+    plugins: [react()],
+    base: basePath,
+  }
 })
+
 
