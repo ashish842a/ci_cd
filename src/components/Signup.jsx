@@ -60,7 +60,7 @@ export default function Signup({ onSignupSuccess }) {
       <div className="signup-card" role="region" aria-label="Signup form">
         {/* <div className="brand">MyApp</div> */}
 
-        <h2 className="title">Create Account</h2>
+        <h2 className="title">Register Account</h2>
         <p className="subtitle">Join us today and get started</p>
 
         {error && <div className="error-message">{error}</div>}
