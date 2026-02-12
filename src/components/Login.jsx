@@ -1,5 +1,5 @@
 import './Login.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useState } from 'react'
 
 export default function Login({ onLoginSuccess }) {
@@ -69,7 +69,7 @@ export default function Login({ onLoginSuccess }) {
 
           <div className="foot">
             <a className="muted" href="#">Forgot password?</a>
-            <span>New here? <a href="#">Create account</a></span>
+            <span>New here? <Link to="/signup">Create account</Link></span>
           </div>
 
           <div className="demo-creds">
